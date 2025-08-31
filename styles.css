@@ -483,15 +483,14 @@
         }
 
         .faq-answer {
-            padding: 0 2rem 2rem 2rem;
-            color: #2c2c2c;
-            line-height: 1.7;
-            display: none;
-        }
+         max-height: 0;
+         overflow: hidden;
+         transition: max-height 0.4s ease;
+       }
 
-        .faq-item.active .faq-answer {
-            display: block;
-        }
+       .faq-item.active .faq-answer {
+         max-height: 500px; /* adjust as needed */
+       }
 
         .instagram-cta {
             background: linear-gradient(135deg, #8b7355 0%, #756147 100%);
