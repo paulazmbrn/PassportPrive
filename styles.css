@@ -163,7 +163,7 @@
 
         .about-image {
             height: 400px;
-            background: linear-gradient(135deg, #e8ddd4 0%, #c4b5a0 100%);
+            background: transparent;
             border-radius: 4px;
             display: flex;
             align-items: center;
