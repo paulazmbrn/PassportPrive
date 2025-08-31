@@ -42,4 +42,23 @@
       header.style.boxShadow = 'none';
     }
   });
+
+  // Handle form submission with popup
+  document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+      // Let Netlify handle the submission, then show popup after a delay
+      setTimeout(function() {
+          document.getElementById('successPopup').classList.add('show');
+      }, 500);
+  });
+  
+  function closeSuccessPopup() {
+      document.getElementById('successPopup').classList.remove('show');
+  }
+  
+  // Close popup when clicking outside the content
+  document.getElementById('successPopup').addEventListener('click', function(e) {
+      if (e.target === this) {
+          closeSuccessPopup();
+      }
+  });
 </script>
