@@ -244,7 +244,7 @@
         }
 
         .destination-card {
-         background: #c4b5a0; /* same neutral color for all cards */
+         background: #c4b5a0;
          color: white;
          border-radius: 4px;
          height: 300px;
@@ -258,11 +258,10 @@
        }
        
        .destination-card:hover {
-         background: linear-gradient(135deg, #8b7355 0%, #2c2c2c 100%);
+         background-color: #8b7355; /* solid brown, NO gradient */
          transform: scale(1.02);
          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
        }
-
         .destination-overlay {
             position: absolute;
             top: 0;
