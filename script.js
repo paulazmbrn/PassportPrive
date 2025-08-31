@@ -1,5 +1,6 @@
 <script>
   // Smooth scrolling for navigation links
+document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
@@ -12,27 +13,12 @@
       }
     });
   });
-
-  // FAQ Toggle functionality
+  
+ // FAQ Toggle functionality
   document.querySelectorAll('.faq-question').forEach(question => {
-    document.addEventListener('DOMContentLoaded', function () {
-      // FAQ Toggle functionality
-      document.querySelectorAll('.faq-question').forEach(question => {
-        question.addEventListener('click', function () {
-          const faqItem = this.closest('.faq-item');
-          faqItem.classList.toggle('active');
-        });
-      });
-    });
-      // Close all FAQ items
-      document.querySelectorAll('.faq-item').forEach(item => {
-        item.classList.remove('active');
-      });
-
-      // Toggle current item if it wasn't active
-      if (!isActive) {
-        faqItem.classList.add('active');
-      }
+    question.addEventListener('click', function () {
+      const faqItem = this.closest('.faq-item');
+      faqItem.classList.toggle('active');
     });
   });
 
@@ -49,21 +35,24 @@
   });
 
   // Handle form submission with popup
-  document.querySelector('.contact-form form').addEventListener('submit', function(e) {
-      // Let Netlify handle the submission, then show popup after a delay
-      setTimeout(function() {
-          document.getElementById('successPopup').classList.add('show');
+  const form = document.querySelector('.contact-form form');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      setTimeout(function () {
+        document.getElementById('successPopup').classList.add('show');
       }, 500);
-  });
-  
-  function closeSuccessPopup() {
-      document.getElementById('successPopup').classList.remove('show');
+    });
   }
-  
-  // Close popup when clicking outside the content
-  document.getElementById('successPopup').addEventListener('click', function(e) {
+
+  // Close popup when clicking outside
+  const popup = document.getElementById('successPopup');
+  if (popup) {
+    popup.addEventListener('click', function (e) {
       if (e.target === this) {
-          closeSuccessPopup();
+        popup.classList.remove('show');
       }
-  });
-</script>
+    });
+  }
+});
+
+ 
