@@ -1,4 +1,4 @@
-k<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -269,12 +269,17 @@ k<!DOCTYPE html>
 
         .destination-overlay {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            bottom: 0;
+            background: rgba(44, 44, 44, 0.4);
             color: white;
             padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
         }
 
@@ -435,39 +440,6 @@ k<!DOCTYPE html>
             color: #f5f0ec;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-tagline {
-                font-size: 1.1rem;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-
-            .destinations-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         .highlight {
             color: #8b7355;
             font-weight: 400;
@@ -548,6 +520,39 @@ k<!DOCTYPE html>
         .instagram-cta:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(139, 115, 85, 0.3);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .destinations-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -679,7 +684,7 @@ k<!DOCTYPE html>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>For domestic or short trips, 3-4 months ahead is ideal. For international or multi-stop trips, reach out 6-8 months in advance to get the best options and access.</p>
+                        <p>For domestic or short trips, 1-2 months ahead is ideal. For international or multi-stop trips, reach out 3-4 months in advance to get the best options and access.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -728,7 +733,7 @@ k<!DOCTYPE html>
             <h2 class="section-title">Inquire Now</h2>
             <div class="contact-content">
                 <div class="contact-form">
-                    <form>
+                    <form name="contact" method="POST" data-netlify="true">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -827,10 +832,6 @@ k<!DOCTYPE html>
                     faqItem.classList.add('active');
                 }
             });
-        });
-        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your inquiry! I\'ll get back to you within 24 hours to start planning your elevated travel experience.');
         });
 
         // Add scroll effect to header
