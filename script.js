@@ -15,10 +15,15 @@
 
   // FAQ Toggle functionality
   document.querySelectorAll('.faq-question').forEach(question => {
-    question.addEventListener('click', function () {
-      const faqItem = this.parentElement;
-      const isActive = faqItem.classList.contains('active');
-
+    document.addEventListener('DOMContentLoaded', function () {
+      // FAQ Toggle functionality
+      document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', function () {
+          const faqItem = this.closest('.faq-item');
+          faqItem.classList.toggle('active');
+        });
+      });
+    });
       // Close all FAQ items
       document.querySelectorAll('.faq-item').forEach(item => {
         item.classList.remove('active');
