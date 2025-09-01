@@ -90,7 +90,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Load Instagram gallery (4 most recent by default)
-    loadInstagramGallery({ limit: 4 });
+    // Skip when official embeds are present
+    if (!document.getElementById('insta-embeds')) {
+        loadInstagramGallery({ limit: 4 });
+    }
 });
 
 function closeSuccessPopup() {

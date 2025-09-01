@@ -467,6 +467,18 @@
             gap: 12px;
         }
 
+        /* Layout for official Instagram embeds */
+        .insta-embeds {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 12px;
+            justify-items: center;
+            margin-top: 12px;
+        }
+        .insta-embeds .instagram-media {
+            margin: 0 !important;
+        }
+
         .insta-item {
             position: relative;
             display: block;
