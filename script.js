@@ -17,22 +17,22 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // FAQ Toggle functionality
-    document.querySelectorAll('.faq-question').forEach(question => {
-        question.addEventListener('click', function() {
-            const faqItem = this.parentElement;
-            const isActive = faqItem.classList.contains('active');
-            
-            // Close all FAQ items
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle current item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
             });
-            
-            // Toggle current item if it wasn't active
-            if (!isActive) {
-                faqItem.classList.add('active');
-            }
         });
-    });
 
     // Add scroll effect to header
     window.addEventListener('scroll', function () {
