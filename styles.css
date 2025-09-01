@@ -503,14 +503,18 @@
 
         /* Advisors Section */
         .advisors-section { background: #f5f0ec; }
-        .advisors-affiliation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .advisors-affiliation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: stretch; }
         .advisors-col { min-width: 0; }
         .affiliation-col { min-width: 0; }
         @media (max-width: 900px) { .advisors-affiliation-grid { grid-template-columns: 1fr; gap: 2rem; } }
         /* Panel look like contact section */
         .advisors-col,
-        .affiliation-col { background: #f5f0ec; padding: 3rem; border-radius: 4px; box-shadow: 0 4px 20px rgba(44, 44, 44, 0.08); }
+        .affiliation-col { background: #f5f0ec; padding: 3rem; border-radius: 4px; box-shadow: 0 4px 20px rgba(44, 44, 44, 0.08); display: flex; flex-direction: column; }
         .affiliation-col .instagram-cta { margin-top: 1rem; display: inline-block; }
+        /* Ensure inner content stretches so panels end up same height */
+        .advisors-col .advisors-grid { flex: 1; display: grid; }
+        .affiliation-col .affiliation-cards { flex: 1; }
+        .advisor-card.featured { height: 100%; display: grid; grid-template-rows: auto 1fr; }
         .advisors-section .section-header { margin-bottom: 1.5rem; text-align: left; }
         .affiliation-col .instagram-cta { margin-top: 0.75rem; }
         .section-header { text-align: center; margin-bottom: 2rem; }
