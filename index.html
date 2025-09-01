@@ -32,6 +32,9 @@
             <p class="hero-tagline">Curated escapes, made effortless.</p>
             <a href="#contact" class="cta-button">Plan Your Trip</a>
         </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+        </div>
     </section>
 
     <!-- About Section -->
@@ -207,27 +210,54 @@
             <h2 class="section-title">Inquire Now</h2>
             <div class="contact-content">
                 <div class="contact-form">
-                    <form name="contact" method="POST" data-netlify="true">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+                        <input type="hidden" name="form-name" value="contact">
+                        <p hidden>
+                            <label>Don’t fill this out: <input name="bot-field"></label>
+                        </p>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" autocomplete="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" autocomplete="email" required>
+                            </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="travel-type">Travel Interest</label>
+                            <select id="travel-type" name="travel-type" required>
+                                <option value="">Select your travel style</option>
+                                <option value="luxury-golf">Luxury Golf Travel</option>
+                                <option value="destination-wedding">Destination Wedding</option>
+                                <option value="honeymoon">Honeymoon</option>
+                                <option value="cruise">Cruise</option>
+                                <option value="all-inclusive">All-Inclusive Resort</option>
+                                <option value="cultural">Cultural &amp; Adventure</option>
+                                <option value="family">Family Travel</option>
+                                <option value="other">Other</option>
+                            </select>
                         </div>
-                        <div class="form-group">
-                            <label for="destination">Destination Interest</label>
-                            <input type="text" id="destination" name="destination" placeholder="e.g., Golf trip to Scotland, Mexico luxury resort">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="destination">Preferred Destination</label>
+                                <input type="text" id="destination" name="destination" placeholder="e.g., Scotland">
+                            </div>
+                            <div class="form-group">
+                                <label for="travel-dates">Travel Timeframe</label>
+                                <input type="text" id="travel-dates" name="travel-dates" placeholder="e.g., June 2025">
+                            </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="travel-dates">Preferred Travel Dates</label>
-                            <input type="text" id="travel-dates" name="travel-dates" placeholder="Flexible dates welcome">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Tell me about your dream trip</label>
+                            <label for="message">Tell us about your dream trip</label>
                             <textarea id="message" name="message" placeholder="Share your vision, special occasions, group size, interests, and any specific requirements..."></textarea>
                         </div>
+
                         <button class="submit-btn" type="submit">Send Inquiry</button>
                     </form>
                 </div>

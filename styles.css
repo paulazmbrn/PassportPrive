@@ -117,6 +117,31 @@
             color: #333;
         }
 
+        /* Hero Scroll Indicator */
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+        }
+
+        .scroll-line {
+            width: 100%;
+            height: 20px;
+            background: white;
+            animation: scroll-indicator 2s infinite;
+        }
+
+        @keyframes scroll-indicator {
+            0% { transform: translateY(-20px); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(60px); opacity: 0; }
+        }
+
         /* Sections */
         section {
             padding: 100px 0;
@@ -341,7 +366,8 @@
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 12px;
             border: 1px solid #c4b5a0;
@@ -349,6 +375,19 @@
             font-size: 1rem;
             font-family: inherit;
             background: white;
+        }
+
+        /* Custom select arrow and spacing */
+        .form-group select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%238b7355' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 18px center; /* move arrow a bit left from edge */
+            background-size: 12px 8px;
+            padding-right: 44px; /* ensure text doesn’t overlap arrow */
+            cursor: pointer;
         }
 
         .form-group textarea {
@@ -372,6 +411,13 @@
 
         .submit-btn:hover {
             background: #2c2c2c;
+        }
+
+        /* Form Row layout for side-by-side fields */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
         }
 
         .contact-info {
@@ -551,6 +597,11 @@
             .contact-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            /* Stack form rows on mobile */
+            .form-row {
+                grid-template-columns: 1fr;
             }
 
             .section-title {
