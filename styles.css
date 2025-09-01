@@ -492,10 +492,12 @@
 
         /* Advisors Section */
         .advisors-section { background: #f5f0ec; }
-        .advisors-affiliation-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: start; }
+        .advisors-affiliation-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: start; }
         .advisors-col { min-width: 0; }
         .affiliation-col { min-width: 0; }
         @media (max-width: 900px) { .advisors-affiliation-grid { grid-template-columns: 1fr; gap: 2rem; } }
+        .advisors-section .section-header { margin-bottom: 1.5rem; text-align: left; }
+        .affiliation-col .instagram-cta { margin-top: 0.75rem; }
         .section-header { text-align: center; margin-bottom: 2rem; }
         .section-subtitle { color: #2c2c2c; opacity: .9; max-width: 720px; margin: .5rem auto 0; }
         .advisors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
@@ -527,11 +529,16 @@
         .affiliation-point h4 { font-family: 'Futura', 'Century Gothic', 'Arial', sans-serif; font-weight: 400; margin-bottom: .35rem; color: #8b7355; letter-spacing: .5px; text-transform: uppercase; font-size: 0.95rem; }
         .affiliation-point p { line-height: 1.7; color: #2c2c2c; font-size: 0.98rem; }
         /* Carded affiliation points */
-        .affiliation-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
-        .affiliation-card { background: #fff; border: 1px solid #e8ddd4; border-radius: 8px; box-shadow: 0 4px 20px rgba(44,44,44,.06); padding: 1rem 1.1rem; transition: transform 150ms ease, box-shadow 150ms ease; }
+        .affiliation-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 1rem; }
+        .affiliation-card { background: #fff; border: 1px solid #e8ddd4; border-radius: 8px; box-shadow: 0 4px 20px rgba(44,44,44,.06); padding: 1.5rem; transition: transform 150ms ease, box-shadow 150ms ease; }
         .affiliation-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(44,44,44,.14); }
         .affiliation-card h4 { font-family: 'Futura', 'Century Gothic', 'Arial', sans-serif; font-weight: 400; margin-bottom: .35rem; color: #8b7355; letter-spacing: .5px; text-transform: uppercase; font-size: 0.95rem; }
         .affiliation-card p { line-height: 1.7; color: #2c2c2c; font-size: 0.98rem; }
+
+        /* About page: card formatting similar to Contact */
+        .about .about-content { gap: 4rem; }
+        .panel-card { background: #fff; border: 1px solid #e8ddd4; border-radius: 8px; box-shadow: 0 4px 20px rgba(44,44,44,.06); padding: 2rem; }
+        @media (max-width: 768px) { .about .about-content { gap: 2rem; } }
         .affiliation-stats { display: grid; gap: 1rem; align-content: start; }
         .stat-item { background: #f5f0ec; border: 1px solid #e8ddd4; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 20px rgba(44,44,44,.06); }
         .stat-number { font-family: 'Futura', 'Century Gothic', 'Arial', sans-serif; font-size: 1.6rem; letter-spacing: 1px; color: #2c2c2c; }
