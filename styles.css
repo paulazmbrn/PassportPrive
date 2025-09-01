@@ -492,6 +492,10 @@
 
         /* Advisors Section */
         .advisors-section { background: #f5f0ec; }
+        .advisors-affiliation-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: start; }
+        .advisors-col { min-width: 0; }
+        .affiliation-col { min-width: 0; }
+        @media (max-width: 900px) { .advisors-affiliation-grid { grid-template-columns: 1fr; gap: 2rem; } }
         .section-header { text-align: center; margin-bottom: 2rem; }
         .section-subtitle { color: #2c2c2c; opacity: .9; max-width: 720px; margin: .5rem auto 0; }
         .advisors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
