@@ -483,38 +483,18 @@
             font-size: 0.9rem;
         }
 
-        /* Affiliation Section */
+        /* Affiliation Section (Pinpoints-style) */
         .affiliation { background: #fafaf9; }
-        .affiliation-content {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        .affiliation-text p { font-size: 1.05rem; line-height: 1.8; margin-bottom: 1rem; }
-        .affiliation-benefits { margin: 0 0 1.25rem 1.1rem; color: #2c2c2c; }
-        .affiliation-benefits li { margin: 0.25rem 0; }
-        .affiliation-badge {
-            background: #f5f0ec;
-            border: 1px solid #e8ddd4;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(44, 44, 44, 0.06);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2.5rem;
-            min-height: 200px;
-            text-align: center;
-        }
-        .badge-inner { display: grid; gap: 0.35rem; }
-        .badge-eyebrow { color: #8b7355; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem; }
-        .badge-title {
-            font-family: 'Futura', 'Century Gothic', 'Arial', sans-serif;
-            font-weight: 400;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
-            color: #2c2c2c;
-        }
+        .affiliation-content { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: start; }
+        .affiliation-text .section-title { text-align: left; margin-bottom: 1.5rem; }
+        .affiliation-points { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem 2rem; margin-bottom: 1.5rem; }
+        .affiliation-point h4 { font-family: 'Futura', 'Century Gothic', 'Arial', sans-serif; font-weight: 400; margin-bottom: .35rem; color: #8b7355; letter-spacing: .5px; text-transform: uppercase; font-size: 0.95rem; }
+        .affiliation-point p { line-height: 1.7; color: #2c2c2c; font-size: 0.98rem; }
+        .affiliation-stats { display: grid; gap: 1rem; align-content: start; }
+        .stat-item { background: #f5f0ec; border: 1px solid #e8ddd4; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 20px rgba(44,44,44,.06); }
+        .stat-number { font-family: 'Futura', 'Century Gothic', 'Arial', sans-serif; font-size: 1.6rem; letter-spacing: 1px; color: #2c2c2c; }
+        .stat-label { color: #8b7355; text-transform: uppercase; letter-spacing: .7px; font-size: .85rem; margin-top: .35rem; }
+        @media (max-width: 768px) { .affiliation-content { grid-template-columns: 1fr; } .affiliation-points { grid-template-columns: 1fr; } .affiliation-text .section-title { text-align: center; } }
 
         /* Instagram Section */
         .insta-section {
