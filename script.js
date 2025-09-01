@@ -88,11 +88,58 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // Load Instagram gallery (4 most recent by default)
+    loadInstagramGallery({ limit: 4 });
 });
 
 function closeSuccessPopup() {
     const popup = document.getElementById('successPopup');
     if (popup) {
         popup.classList.remove('show');
+    }
+}
+
+// --- Instagram Gallery ---
+async function loadInstagramGallery({ limit = 4 } = {}) {
+    const grid = document.getElementById('insta-grid');
+    if (!grid) return;
+
+    // Add skeleton tiles while loading
+    const skeletonCount = Math.max(4, limit);
+    grid.innerHTML = Array.from({ length: skeletonCount })
+        .map(() => '<div class="insta-skeleton" aria-hidden="true"></div>')
+        .join('');
+
+    try {
+        // Expect a Netlify function at /.netlify/functions/instagram
+        const resp = await fetch(`/.netlify/functions/instagram?limit=${encodeURIComponent(limit)}`);
+        if (!resp.ok) throw new Error('Failed to fetch Instagram');
+        const json = await resp.json();
+        const items = (json && (json.data || json.items || [])) || [];
+
+        if (!items.length) {
+            grid.innerHTML = '';
+            return;
+        }
+
+        const html = items.slice(0, limit).map((m) => {
+            const permalink = m.permalink || '#';
+            const isVideo = m.media_type === 'VIDEO' || m.media_type === 'CAROUSEL_ALBUM' && m.thumbnail_url;
+            const src = isVideo ? (m.thumbnail_url || m.media_url) : m.media_url;
+            const alt = (m.caption || 'Instagram post').replace(/"/g, '');
+            return `
+                <a class="insta-item" href="${permalink}" target="_blank" rel="noopener" aria-label="Open Instagram post in a new tab">
+                    <img loading="lazy" decoding="async" src="${src}" alt="${alt}">
+                    <span class="sr-only">Opens Instagram in a new tab</span>
+                </a>
+            `;
+        }).join('');
+
+        grid.innerHTML = html;
+    } catch (err) {
+        // On failure, keep it graceful: show nothing (CTA below remains)
+        console.warn('Instagram fetch error:', err);
+        grid.innerHTML = '';
     }
 }
