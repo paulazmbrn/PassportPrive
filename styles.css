@@ -366,7 +366,8 @@
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 12px;
             border: 1px solid #c4b5a0;
@@ -397,6 +398,13 @@
 
         .submit-btn:hover {
             background: #2c2c2c;
+        }
+
+        /* Form Row layout for side-by-side fields */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
         }
 
         .contact-info {
@@ -576,6 +584,11 @@
             .contact-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            /* Stack form rows on mobile */
+            .form-row {
+                grid-template-columns: 1fr;
             }
 
             .section-title {
