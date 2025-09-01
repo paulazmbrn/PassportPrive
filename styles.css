@@ -579,6 +579,9 @@
         .about-socials a:hover { color: #2c2c2c; border-color: #c4b5a0; background: #fff; }
         .about-socials img { display: block; width: 20px; height: 20px; }
 
+        /* About page: float-based wrap around headshot */
+        .page-about .about .about-text::after { content: ""; display: table; clear: both; }
+
         /* About page: text wrap around headshot */
         .headshot-wrap { float: left; width: 280px; max-width: 42%; height: auto; border-radius: 12px; margin: 0 1.25rem 1rem 0; object-fit: cover; shape-outside: inset(0 round 12px); }
         .page-about .about .about-text::after { content: ""; display: table; clear: both; }
