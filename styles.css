@@ -587,15 +587,13 @@
             .page-about .about-text .about-socials { right: 0.75rem; bottom: 0.75rem; }
         }
 
-        /* About page: float-based wrap around headshot */
-        .page-about .about .about-text::after { content: ""; display: table; clear: both; }
-
-        /* About page: text wrap around headshot */
-        .headshot-wrap { float: left; width: 280px; max-width: 42%; height: auto; border-radius: 12px; margin: 0 1.25rem 1rem 0; object-fit: cover; shape-outside: inset(0 round 12px); }
-        .page-about .about .about-text::after { content: ""; display: table; clear: both; }
+        /* About page: two-column inner layout with vertical centering */
+        .about-inner { display: grid; grid-template-columns: 320px 1fr; gap: 2rem; align-items: center; }
+        .bio-photo { width: 100%; max-width: 320px; height: auto; border-radius: 12px; object-fit: cover; }
         .page-about .about .about-content { grid-template-columns: 1fr; }
         @media (max-width: 768px) {
-            .headshot-wrap { float: none; display: block; width: 100%; max-width: 100%; margin: 0 0 1rem 0; }
+            .about-inner { grid-template-columns: 1fr; }
+            .bio-photo { max-width: 100%; }
         }
         .affiliation-stats { display: grid; gap: 1rem; align-content: start; }
         .stat-item { background: #f5f0ec; border: 1px solid #e8ddd4; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 20px rgba(44,44,44,.06); }
