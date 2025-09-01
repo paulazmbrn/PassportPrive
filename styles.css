@@ -430,7 +430,12 @@
             background-size: 12px 8px;
             padding-right: 44px; /* ensure text doesn’t overlap arrow */
             cursor: pointer;
+            color: #2c2c2c; /* ensure text isn't iOS default blue */
         }
+
+        /* Placeholder-like styling for the first option */
+        .form-group select.placeholder { color: #8b7355; }
+        .form-group select option[disabled] { color: #c4b5a0; }
 
         .form-group textarea {
             height: 120px;

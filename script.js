@@ -95,6 +95,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Select placeholder color handling (for iOS/mobile consistency)
+    const travelType = document.getElementById('travel-type');
+    if (travelType) {
+        const syncPlaceholderClass = () => {
+            if (!travelType.value) {
+                travelType.classList.add('placeholder');
+            } else {
+                travelType.classList.remove('placeholder');
+            }
+        };
+        syncPlaceholderClass();
+        travelType.addEventListener('change', syncPlaceholderClass);
+    }
+
     // Close popup when clicking outside
     const popup = document.getElementById('successPopup');
     if (popup) {
