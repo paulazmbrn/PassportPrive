@@ -83,6 +83,7 @@
             color: #2c2c2c;
             letter-spacing: 1px;
             text-transform: uppercase;
+            text-decoration: none; /* ensure anchor looks like brand mark */
         }
 
         .nav-links {
