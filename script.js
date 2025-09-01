@@ -69,13 +69,29 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle form submission with popup
     const form = document.querySelector('.contact-form form');
     if (form) {
-        form.addEventListener('submit', function (e) {
-            setTimeout(function () {
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            // Netlify requires the hidden form-name field
+            if (!formData.get('form-name')) {
+                const hidden = form.querySelector('input[name="form-name"]');
+                if (hidden) formData.set('form-name', hidden.value || 'contact');
+            }
+
+            try {
+                await fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                });
+
                 const popup = document.getElementById('successPopup');
-                if (popup) {
-                    popup.classList.add('show');
-                }
-            }, 500);
+                if (popup) popup.classList.add('show');
+                form.reset();
+            } catch (err) {
+                console.warn('Form submit failed, falling back:', err);
+                form.submit(); // fallback to default Netlify redirect
+            }
         });
     }
 
