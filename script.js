@@ -105,6 +105,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('primary-navigation');
+    if (navToggle && navLinks) {
+        const closeNav = () => {
+            document.body.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        };
+        navToggle.addEventListener('click', () => {
+            const isOpen = document.body.classList.toggle('nav-open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+        window.addEventListener('resize', () => { if (window.innerWidth > 768) closeNav(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeNav(); });
+    }
+
     // Load Instagram gallery (4 most recent by default)
     // Skip when official embeds are present
     if (!document.getElementById('insta-embeds')) {
