@@ -732,12 +732,14 @@
 
 .success-content h2 {
     font-family: 'Futura', 'Century Gothic', 'Arial', sans-serif;
+    font-weight: 700; /* Futura Bold */
     color: #2c2c2c;
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
 .success-content p {
+    font-family: 'Avenir', 'Helvetica Neue', 'Arial', sans-serif; /* match site paragraph */
     color: #2c2c2c;
     margin-bottom: 2rem;
     line-height: 1.6;
