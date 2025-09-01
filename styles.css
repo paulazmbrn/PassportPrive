@@ -117,6 +117,31 @@
             color: #333;
         }
 
+        /* Hero Scroll Indicator */
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+        }
+
+        .scroll-line {
+            width: 100%;
+            height: 20px;
+            background: white;
+            animation: scroll-indicator 2s infinite;
+        }
+
+        @keyframes scroll-indicator {
+            0% { transform: translateY(-20px); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(60px); opacity: 0; }
+        }
+
         /* Sections */
         section {
             padding: 100px 0;
