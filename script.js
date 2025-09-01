@@ -1,4 +1,3 @@
-<script>
 // Wait for the whole DOM to load
 document.addEventListener('DOMContentLoaded', function () {
     
@@ -16,23 +15,44 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // FAQ Toggle functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', function() {
-                const faqItem = this.parentElement;
-                const isActive = faqItem.classList.contains('active');
-                
-                // Close all FAQ items
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                // Toggle current item if it wasn't active
-                if (!isActive) {
-                    faqItem.classList.add('active');
-                }
-            });
+    // FAQ Toggle functionality (one open at a time + animation)
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    const collapseAll = () => {
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const ans = item.querySelector('.faq-answer');
+            if (ans) ans.style.maxHeight = '0px';
+            item.classList.remove('active');
         });
+    };
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const faqItem = this.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const wasActive = faqItem.classList.contains('active');
+
+            // Close all first
+            collapseAll();
+
+            // Open clicked if it wasn't already active
+            if (!wasActive) {
+                faqItem.classList.add('active');
+                if (answer) {
+                    // small buffer avoids off-by-one clipping in some browsers
+                    const target = answer.scrollHeight + 2;
+                    answer.style.maxHeight = target + 'px';
+                }
+            }
+        });
+    });
+
+    // Recalculate height on resize so open items stay accurate
+    window.addEventListener('resize', () => {
+        const open = document.querySelector('.faq-item.active .faq-answer');
+        if (open) {
+            open.style.maxHeight = (open.scrollHeight + 2) + 'px';
+        }
+    });
 
     // Add scroll effect to header
     window.addEventListener('scroll', function () {
@@ -76,5 +96,3 @@ function closeSuccessPopup() {
         popup.classList.remove('show');
     }
 }
-
- 

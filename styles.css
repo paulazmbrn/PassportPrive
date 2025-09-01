@@ -1,4 +1,3 @@
-<style>
         * {
             margin: 0;
             padding: 0;
@@ -67,8 +66,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(28, 28, 28, 0.4), rgba(44, 44, 44, 0.3)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="sunset" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%23f5f0ec"/><stop offset="30%" style="stop-color:%23e8ddd4"/><stop offset="70%" style="stop-color:%23c4b5a0"/><stop offset="100%" style="stop-color:%238b7355"/></linearGradient></defs><rect width="1200" height="800" fill="url(%23sunset)"/><ellipse cx="200" cy="150" rx="50" ry="30" fill="%23f5f0ec" opacity="0.8"/><path d="M0 600 Q300 550 600 580 T1200 600 L1200 800 L0 800 Z" fill="%23c4b5a0" opacity="0.6"/><path d="M100 650 Q400 620 700 640 T1200 650 L1200 800 L100 800 Z" fill="%238b7355" opacity="0.4"/></svg>');
+            background-image: linear-gradient(rgba(28, 28, 28, 0.40), rgba(44, 44, 44, 0.30)), url('hero.jpg');
             height: 100vh;
             display: flex;
             align-items: center;
@@ -76,7 +74,7 @@
             text-align: center;
             color: white;
             background-size: cover;
-            background-position: center;
+            background-position: 50% 45%;
         }
 
         .hero-content {
@@ -174,6 +172,35 @@
             padding: 2rem;
         }
 
+        /* Specialties Section */
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .specialty-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(44, 44, 44, 0.08);
+            border: 1px solid #e8ddd4;
+            transition: transform 0.3s ease;
+        }
+
+        .specialty-category h3 {
+            font-family: 'Futura', 'Century Gothic', 'Arial', sans-serif;
+            color: #8b7355;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .specialty-category:hover {
+            transform: translateY(-5px);
+        }
+
         /* Services Section */
         .services {
             background: #fafaf9;
@@ -234,43 +261,36 @@
         /* Destinations Section */
         .destinations {
            background: #f5f0ec;
-       }
-       
-       .destinations-grid {
+        }
+        
+        .destinations-grid {
            display: grid;
-           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
            gap: 2rem;
            margin-top: 3rem;
-       }
-       
-       .destination-card {
-           height: 300px;
+        }
+        
+        .destination-card {
+           background: white;
+           padding: 2rem;
            border-radius: 4px;
-           position: relative;
-           overflow: hidden;
-           cursor: pointer;
+           text-align: center;
+           box-shadow: 0 4px 20px rgba(44, 44, 44, 0.08);
+           border: 1px solid #e8ddd4;
+           cursor: default;
            transition: transform 0.3s ease;
-       }
-       
-       .destination-card:hover {
-              transform: scale(1.02);
-              box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-       }
-       
+        }
+        
+        .destination-card:hover {
+           transform: translateY(-5px);
+        }
+        
         .destination-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(44, 44, 44, 0.4);
-            color: white;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            position: static;
+            background: transparent;
+            color: inherit;
+            padding: 0;
+            display: block;
         }
 
         .destination-overlay h3 {
@@ -482,14 +502,17 @@
        }
        
        .faq-answer {
-           padding: 0 2rem 2rem 2rem;
            color: #2c2c2c;
            line-height: 1.7;
-           display: none;
+           max-height: 0;
+           overflow: hidden;
+           padding: 0 2rem; /* collapse vertical padding */
+           transition: max-height 0.35s ease; /* only animate height for reliability */
        }
        
        .faq-item.active .faq-answer {
-           display: block;
+           /* padding expands only when open; height set via JS for smooth animation */
+           padding: 1rem 2rem 2rem 2rem;
        }
         .instagram-cta {
             background: linear-gradient(135deg, #8b7355 0%, #756147 100%);
@@ -598,5 +621,3 @@
 .close-popup:hover {
     background: #2c2c2c;
 }
-
-    </style>
