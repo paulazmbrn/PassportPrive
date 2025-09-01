@@ -475,6 +475,17 @@
             letter-spacing: 1px;
         }
 
+        /* Match contact heading style in Affiliation panel */
+        .affiliation-col h3 {
+            font-family: 'Futura', 'Century Gothic', 'Arial', sans-serif;
+            color: #8b7355;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         .contact-detail {
             margin-bottom: 1.5rem;
             padding: 1.5rem;
