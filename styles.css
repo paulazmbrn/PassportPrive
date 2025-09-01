@@ -492,10 +492,14 @@
 
         /* Advisors Section */
         .advisors-section { background: #f5f0ec; }
-        .advisors-affiliation-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: start; }
+        .advisors-affiliation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
         .advisors-col { min-width: 0; }
         .affiliation-col { min-width: 0; }
         @media (max-width: 900px) { .advisors-affiliation-grid { grid-template-columns: 1fr; gap: 2rem; } }
+        /* Panel look like contact section */
+        .advisors-col,
+        .affiliation-col { background: #f5f0ec; padding: 3rem; border-radius: 4px; box-shadow: 0 4px 20px rgba(44, 44, 44, 0.08); }
+        .affiliation-col .instagram-cta { margin-top: 1rem; display: inline-block; }
         .advisors-section .section-header { margin-bottom: 1.5rem; text-align: left; }
         .affiliation-col .instagram-cta { margin-top: 0.75rem; }
         .section-header { text-align: center; margin-bottom: 2rem; }
@@ -528,6 +532,8 @@
         .affiliation-points { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem 2rem; margin-bottom: 1.5rem; }
         .affiliation-point h4 { font-family: 'Futura', 'Century Gothic', 'Arial', sans-serif; font-weight: 400; margin-bottom: .35rem; color: #8b7355; letter-spacing: .5px; text-transform: uppercase; font-size: 0.95rem; }
         .affiliation-point p { line-height: 1.7; color: #2c2c2c; font-size: 0.98rem; }
+        .affiliation-points { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+        .affiliation-col .affiliation-point { background: #fff; border: 1px solid #e8ddd4; border-radius: 8px; box-shadow: 0 4px 20px rgba(44,44,44,.06); padding: 1.1rem; }
         /* Carded affiliation points */
         .affiliation-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 1rem; }
         .affiliation-card { background: #fff; border: 1px solid #e8ddd4; border-radius: 8px; box-shadow: 0 4px 20px rgba(44,44,44,.06); padding: 1.5rem; transition: transform 150ms ease, box-shadow 150ms ease; }
