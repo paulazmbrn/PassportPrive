@@ -579,6 +579,14 @@
         .about-socials a:hover { color: #2c2c2c; border-color: #c4b5a0; background: #fff; }
         .about-socials img { display: block; width: 20px; height: 20px; }
 
+        /* About page: place socials at bottom-right of the bio panel */
+        .page-about .about-text.panel-card { position: relative; padding-bottom: 3.25rem; }
+        .page-about .about-text .about-socials { position: absolute; right: 1rem; bottom: 1rem; margin-top: 0; flex-wrap: nowrap; }
+        @media (max-width: 768px) {
+            .page-about .about-text.panel-card { padding-bottom: 3.75rem; }
+            .page-about .about-text .about-socials { right: 0.75rem; bottom: 0.75rem; }
+        }
+
         /* About page: float-based wrap around headshot */
         .page-about .about .about-text::after { content: ""; display: table; clear: both; }
 
