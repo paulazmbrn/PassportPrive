@@ -238,6 +238,7 @@
             text-align: center;
             padding: 2rem;
         }
+        .about-image img { display: block; max-width: 100%; height: auto; }
 
         /* Specialties Section */
         .specialties-grid {
