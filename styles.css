@@ -508,7 +508,8 @@
         .advisor-specialties { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .75rem; }
         .advisor-specialties span { background: #f5f0ec; border: 1px solid #e8ddd4; border-radius: 999px; padding: .3rem .6rem; font-size: .85rem; color: #2c2c2c; }
         .advisor-contact { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: .75rem; }
-        .advisor-contact a { color: #8b7355; text-decoration: none; }
+        .advisor-contact a { color: #8b7355; text-decoration: none; transition: color .15s ease; }
+        .advisor-contact a:hover { color: #2c2c2c; }
         .advisor-placeholder { background: #fafaf9; min-height: 180px; display: flex; align-items: center; justify-content: center; }
         .placeholder-icon { width: 56px; height: 56px; border-radius: 50%; background: #e8ddd4; }
         .advisor-cta { margin-top: .5rem; }
