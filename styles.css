@@ -509,7 +509,7 @@
         @media (max-width: 900px) { .advisors-affiliation-grid { grid-template-columns: 1fr; gap: 2rem; } }
         /* Panel look like contact section */
         .advisors-col,
-        .affiliation-col { background: #f5f0ec; padding: 3rem; border-radius: 4px; box-shadow: 0 4px 20px rgba(44, 44, 44, 0.08); display: flex; flex-direction: column; }
+        .affiliation-col { background: #f5f0ec; padding: 3rem; border-radius: 4px; box-shadow: 0 4px 20px rgba(44, 44, 44, 0.08); display: flex; flex-direction: column; min-height: 520px; }
         .affiliation-col .instagram-cta { margin-top: 1rem; display: inline-block; }
         /* Ensure inner content stretches so panels end up same height */
         .advisors-col .advisors-grid { flex: 1; display: grid; }
