@@ -110,6 +110,39 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!document.getElementById('insta-embeds')) {
         loadInstagramGallery({ limit: 4 });
     }
+
+    // Section reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Image blur-up helper
+    document.querySelectorAll('img.img-lazy').forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', () => img.classList.add('loaded'));
+        }
+    });
+
+    // Mark Instagram embeds as ready after they render
+    const embeds = document.getElementById('insta-embeds');
+    if (embeds) {
+        const markReady = () => embeds.classList.add('ready');
+        // Try after a short delay; also observe DOM changes
+        setTimeout(markReady, 900);
+        const mo = new MutationObserver(() => {
+            if (embeds.querySelector('iframe')) { markReady(); mo.disconnect(); }
+        });
+        mo.observe(embeds, { childList: true, subtree: true });
+    }
 });
 
 function closeSuccessPopup() {
