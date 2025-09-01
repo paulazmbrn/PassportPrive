@@ -227,7 +227,6 @@
         }
 
         .about-image {
-            height: 400px;
             background: transparent;
             border-radius: 4px;
             display: flex;
@@ -238,7 +237,7 @@
             text-align: center;
             padding: 2rem;
         }
-        .about-image img { display: block; max-width: 100%; height: auto; }
+        .about-image img { display: block; width: 100%; max-width: 420px; height: auto; border-radius: 12px; object-fit: contain; }
 
         /* Specialties Section */
         .specialties-grid {
