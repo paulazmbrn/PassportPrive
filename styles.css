@@ -595,6 +595,22 @@
             .about-inner { grid-template-columns: 1fr; }
             .bio-photo { max-width: 100%; }
         }
+        /* Certifications & Specialties on About */
+        .certifications { margin-top: 1.25rem; display: grid; gap: .75rem; grid-template-columns: 1fr; }
+        .certifications-title { margin-bottom: .5rem; }
+        .about-text .certifications-title { color: #000; }
+        .info-group { background: #fff; border: 1px solid #e8ddd4; border-radius: 8px; box-shadow: 0 4px 20px rgba(44,44,44,.06); padding: 1rem 1.25rem; }
+        .info-group + .info-group { margin-top: .75rem; }
+        .info-group-label { font-family: 'Futura', 'Century Gothic', 'Arial', sans-serif; font-size: .9rem; color: #8b7355; text-transform: uppercase; letter-spacing: .6px; margin-bottom: .25rem; }
+        .info-list { list-style: none; margin: 0; padding: 0; }
+        .info-list li { padding: .5rem 0; border-top: 1px solid #e8ddd4; line-height: 1.5; }
+        .info-list li:first-child { border-top: 0; }
+        /* Desktop two-column layout for info groups */
+        @media (min-width: 900px) {
+            .certifications { grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; }
+            .certifications .certifications-title { grid-column: 1 / -1; }
+            .info-group + .info-group { margin-top: 0; }
+        }
         .affiliation-stats { display: grid; gap: 1rem; align-content: start; }
         .stat-item { background: #f5f0ec; border: 1px solid #e8ddd4; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 20px rgba(44,44,44,.06); }
         .stat-number { font-family: 'Futura', 'Century Gothic', 'Arial', sans-serif; font-size: 1.6rem; letter-spacing: 1px; color: #2c2c2c; }
