@@ -579,21 +579,22 @@
         .about-socials a:hover { color: #2c2c2c; border-color: #c4b5a0; background: #fff; }
         .about-socials img { display: block; width: 20px; height: 20px; }
 
-        /* About page: place socials at bottom-right of the bio panel */
-        .page-about .about-text.panel-card { position: relative; padding-bottom: 3.25rem; }
-        .page-about .about-text .about-socials { position: absolute; right: 1rem; bottom: 1rem; margin-top: 0; flex-wrap: nowrap; }
-        @media (max-width: 768px) {
-            .page-about .about-text.panel-card { padding-bottom: 3.75rem; }
-            .page-about .about-text .about-socials { right: 0.75rem; bottom: 0.75rem; }
-        }
+        /* About page: socials within the Certifications header */
+        .certifications-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .25rem; flex-wrap: wrap; }
+        .certifications-header .about-socials { margin-top: 0; }
+        .page-about .about-text .certifications-header .about-socials { position: static; right: auto; bottom: auto; }
+        .page-about .about-text.panel-card { padding-bottom: 2rem; }
 
         /* About page: two-column inner layout with vertical centering */
         .about-inner { display: grid; grid-template-columns: 320px 1fr; gap: 2rem; align-items: center; }
+        /* Place socials under bio (right aligned) on desktop */
+        .about-inner .about-socials { grid-column: 2; justify-self: end; margin-top: .75rem; }
         .bio-photo { width: 100%; max-width: 320px; height: auto; border-radius: 12px; object-fit: cover; }
         .page-about .about .about-content { grid-template-columns: 1fr; }
         @media (max-width: 768px) {
             .about-inner { grid-template-columns: 1fr; }
             .bio-photo { max-width: 100%; }
+            .about-inner .about-socials { grid-column: 1; justify-self: start; }
         }
         /* Certifications & Specialties on About */
         .certifications { margin-top: 1.25rem; display: grid; gap: .75rem; grid-template-columns: 1fr; }
@@ -608,7 +609,7 @@
         /* Desktop two-column layout for info groups */
         @media (min-width: 900px) {
             .certifications { grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; }
-            .certifications .certifications-title { grid-column: 1 / -1; }
+            .certifications-header { grid-column: 1 / -1; }
             .info-group + .info-group { margin-top: 0; }
         }
         .affiliation-stats { display: grid; gap: 1rem; align-content: start; }
